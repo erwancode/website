@@ -143,7 +143,7 @@ function checkoutWhatsApp() {
     return;
   }
 
-  const phoneNumber = "6281234567890"; // Ganti dengan nomor WhatsApp kamu
+  const phoneNumber = "6285722379403"; // Ganti dengan nomor WhatsApp kamu
 
   let message = "Halo Nalar Goods, saya mau pesan:%0A%0A";
   let total = 0;
