@@ -1,115 +1,122 @@
-const whatsappNumber = "6285722379403";
+let cart = [];
 
-const products = [
-  { id: 1, name: "Nalar CIPTA", price: 129000, colorClass: "", desc: "Kaos hitam dengan konsep menciptakan ide dan karya.", label: "Best Seller" },
-  { id: 2, name: "Nalar RASA", price: 129000, colorClass: "cream", desc: "Kaos cream/off-white dengan pesan tentang rasa dan makna.", label: "New" },
-  { id: 3, name: "Nalar KARSA", price: 129000, colorClass: "", desc: "Kaos hitam dengan konsep kemauan dan daya cipta.", label: "Limited" }
-];
-
-let cart = JSON.parse(localStorage.getItem("nalarCart")) || [];
-
-function rupiah(number) {
-  return new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", maximumFractionDigits: 0 }).format(number);
+function formatRupiah(number) {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0
+  }).format(number);
 }
 
-function renderProducts() {
-  const list = document.getElementById("productList");
-  list.innerHTML = products.map(product => `
-    <article class="product-card">
-      <div class="product-img ${product.colorClass}">
-        <span class="badge">${product.label}</span>
-        <h3>${product.name.split(" ")[1]}</h3>
-      </div>
-      <div class="product-body">
-        <h3>${product.name}</h3>
-        <p>${product.desc}</p>
-        <div class="price">${rupiah(product.price)}</div>
-        <div class="options">
-          <select id="size-${product.id}">
-            <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
-          </select>
-          <select id="color-${product.id}">
-            <option>Hitam</option><option>Cream</option><option>Off White</option>
-          </select>
-        </div>
-        <button class="add-btn" onclick="addToCart(${product.id})">Tambah ke Keranjang</button>
-      </div>
-    </article>
-  `).join("");
-}
+function addToCart(name, price) {
+  const existingItem = cart.find(item => item.name === name);
 
-function saveCart() {
-  localStorage.setItem("nalarCart", JSON.stringify(cart));
-  updateCartCount();
-}
+  if (existingItem) {
+    existingItem.qty += 1;
+  } else {
+    cart.push({ name, price, qty: 1 });
+  }
 
-function addToCart(id) {
-  const product = products.find(p => p.id === id);
-  const size = document.getElementById(`size-${id}`).value;
-  const color = document.getElementById(`color-${id}`).value;
-  const key = `${id}-${size}-${color}`;
-  const existing = cart.find(item => item.key === key);
-  if (existing) existing.qty += 1;
-  else cart.push({ key, id, name: product.name, price: product.price, size, color, qty: 1 });
-  saveCart();
+  renderCart();
   openCart();
 }
 
-function updateCartCount() {
-  document.getElementById("cartCount").textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+function increaseQty(index) {
+  cart[index].qty += 1;
+  renderCart();
+}
+
+function decreaseQty(index) {
+  cart[index].qty -= 1;
+
+  if (cart[index].qty <= 0) {
+    cart.splice(index, 1);
+  }
+
+  renderCart();
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  renderCart();
 }
 
 function renderCart() {
-  const cartItems = document.getElementById("cartItems");
-  if (cart.length === 0) {
-    cartItems.innerHTML = "<p>Keranjang masih kosong.</p>";
-  } else {
-    cartItems.innerHTML = cart.map(item => `
-      <div class="cart-item">
-        <div>
-          <strong>${item.name}</strong><br>
-          <small>Size ${item.size} • ${item.color}</small><br>
-          <small>${rupiah(item.price)}</small>
-        </div>
-        <div class="qty">
-          <button onclick="changeQty('${item.key}', -1)">-</button>
-          <span>${item.qty}</span>
-          <button onclick="changeQty('${item.key}', 1)">+</button>
-        </div>
-      </div>
-    `).join("");
-  }
-  document.getElementById("cartTotal").textContent = rupiah(cart.reduce((sum, item) => sum + item.price * item.qty, 0));
-}
+  const cartItems = document.getElementById("cart-items");
+  const cartCount = document.getElementById("cart-count");
+  const cartTotal = document.getElementById("cart-total");
 
-function changeQty(key, amount) {
-  const item = cart.find(i => i.key === key);
-  if (!item) return;
-  item.qty += amount;
-  if (item.qty <= 0) cart = cart.filter(i => i.key !== key);
-  saveCart();
-  renderCart();
+  cartItems.innerHTML = "";
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = '<p class="empty-cart">Keranjang masih kosong.</p>';
+  }
+
+  let totalQty = 0;
+  let totalPrice = 0;
+
+  cart.forEach((item, index) => {
+    totalQty += item.qty;
+    totalPrice += item.price * item.qty;
+
+    const itemElement = document.createElement("div");
+    itemElement.className = "cart-item";
+
+    itemElement.innerHTML = `
+      <div class="cart-item-top">
+        <div>
+          <h4>${item.name}</h4>
+          <p>${formatRupiah(item.price)} / pcs</p>
+        </div>
+        <button class="remove-btn" onclick="removeItem(${index})">Hapus</button>
+      </div>
+
+      <div class="qty-control">
+        <button onclick="decreaseQty(${index})">−</button>
+        <span>${item.qty}</span>
+        <button onclick="increaseQty(${index})">+</button>
+      </div>
+
+      <p style="margin-top:12px;"><strong>Subtotal:</strong> ${formatRupiah(item.price * item.qty)}</p>
+    `;
+
+    cartItems.appendChild(itemElement);
+  });
+
+  cartCount.textContent = totalQty;
+  cartTotal.textContent = formatRupiah(totalPrice);
 }
 
 function openCart() {
-  renderCart();
-  document.getElementById("cartOverlay").style.display = "flex";
+  document.getElementById("cart-panel").classList.add("active");
+  document.getElementById("overlay").classList.add("active");
 }
 
-function closeCart() {
-  document.getElementById("cartOverlay").style.display = "none";
+function toggleCart() {
+  document.getElementById("cart-panel").classList.toggle("active");
+  document.getElementById("overlay").classList.toggle("active");
 }
 
 function checkoutWhatsApp() {
-  if (cart.length === 0) return alert("Keranjang masih kosong.");
-  const name = document.getElementById("buyerName").value.trim();
-  const address = document.getElementById("buyerAddress").value.trim();
-  if (!name || !address) return alert("Isi nama dan alamat dulu ya.");
-  const orderList = cart.map((item, index) => `${index + 1}. ${item.name}%0A   Size: ${item.size}%0A   Warna: ${item.color}%0A   Qty: ${item.qty}%0A   Subtotal: ${rupiah(item.price * item.qty)}`).join("%0A%0A");
-  const total = rupiah(cart.reduce((sum, item) => sum + item.price * item.qty, 0));
-  const message = `Halo Nalar Goods, saya mau order:%0A%0ANama: ${name}%0AAlamat: ${address}%0A%0A${orderList}%0A%0ATotal: ${total}`;
-  window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
+  if (cart.length === 0) {
+    alert("Keranjang masih kosong.");
+    return;
+  }
+
+  const phoneNumber = "6281234567890"; // Ganti dengan nomor WhatsApp kamu
+
+  let message = "Halo Nalar Goods, saya mau pesan:%0A%0A";
+  let total = 0;
+
+  cart.forEach(item => {
+    const subtotal = item.price * item.qty;
+    total += subtotal;
+    message += `- ${item.name} x${item.qty} = ${formatRupiah(subtotal)}%0A`;
+  });
+
+  message += `%0ATotal: ${formatRupiah(total)}%0A%0AMohon info ketersediaan size dan cara pembayarannya.`;
+
+  window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
 }
 
-renderProducts();
-updateCartCount();
+renderCart();
