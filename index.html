@@ -35,12 +35,34 @@
     </div>
 
     <div class="product-grid">
-      <article class="product-card">
-        <div class="mockup black-shirt">CIPTA</div>
+      <article class="product-card featured-product">
+        <div class="product-image-wrap">
+          <img id="cipta-image" src="assets/cipta-hitam.png" alt="Kaos CIPTA warna hitam" />
+        </div>
+
         <h3>CIPTA</h3>
-        <p>Kaos hitam dengan filosofi keberanian untuk memulai.</p>
+        <p>Kaos dengan filosofi keberanian untuk memulai. Tersedia warna Hitam dan Off-White.</p>
         <strong>Rp149.000</strong>
-        <button onclick="addToCart('CIPTA', 149000)">Tambah ke Keranjang</button>
+
+        <div class="product-options">
+          <p>Pilih Warna</p>
+          <div class="option-row">
+            <button class="variant-btn active" data-color="Hitam" onclick="selectCiptaColor('Hitam')">Hitam</button>
+            <button class="variant-btn" data-color="Off-White" onclick="selectCiptaColor('Off-White')">Off-White</button>
+          </div>
+        </div>
+
+        <div class="product-options">
+          <p>Pilih Size</p>
+          <div class="option-row">
+            <button class="size-btn" onclick="selectCiptaSize('S')">S</button>
+            <button class="size-btn active" onclick="selectCiptaSize('M')">M</button>
+            <button class="size-btn" onclick="selectCiptaSize('L')">L</button>
+            <button class="size-btn" onclick="selectCiptaSize('XL')">XL</button>
+          </div>
+        </div>
+
+        <button onclick="addCiptaToCart()">Tambah ke Keranjang</button>
       </article>
 
       <article class="product-card">

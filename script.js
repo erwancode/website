@@ -1,4 +1,11 @@
 let cart = [];
+let selectedCiptaColor = "Hitam";
+let selectedCiptaSize = "M";
+
+const ciptaImages = {
+  "Hitam": "assets/cipta-hitam.png",
+  "Off-White": "assets/cipta-offwhite.png"
+};
 
 function formatRupiah(number) {
   return new Intl.NumberFormat("id-ID", {
@@ -8,13 +15,41 @@ function formatRupiah(number) {
   }).format(number);
 }
 
-function addToCart(name, price) {
-  const existingItem = cart.find(item => item.name === name);
+function selectCiptaColor(color) {
+  selectedCiptaColor = color;
+
+  const image = document.getElementById("cipta-image");
+  image.src = ciptaImages[color];
+  image.alt = `Kaos CIPTA warna ${color}`;
+
+  document.querySelectorAll(".variant-btn").forEach(button => {
+    button.classList.toggle("active", button.dataset.color === color);
+  });
+}
+
+function selectCiptaSize(size) {
+  selectedCiptaSize = size;
+
+  document.querySelectorAll(".size-btn").forEach(button => {
+    button.classList.toggle("active", button.textContent.trim() === size);
+  });
+}
+
+function addCiptaToCart() {
+  addToCart("CIPTA", 149000, selectedCiptaColor, selectedCiptaSize);
+}
+
+function addToCart(name, price, color = "", size = "") {
+  const existingItem = cart.find(item =>
+    item.name === name &&
+    item.color === color &&
+    item.size === size
+  );
 
   if (existingItem) {
     existingItem.qty += 1;
   } else {
-    cart.push({ name, price, qty: 1 });
+    cart.push({ name, price, color, size, qty: 1 });
   }
 
   renderCart();
@@ -59,6 +94,10 @@ function renderCart() {
     totalQty += item.qty;
     totalPrice += item.price * item.qty;
 
+    const variantText = item.color || item.size
+      ? `<p>${item.color ? item.color : ""}${item.color && item.size ? " · " : ""}${item.size ? "Size " + item.size : ""}</p>`
+      : "";
+
     const itemElement = document.createElement("div");
     itemElement.className = "cart-item";
 
@@ -66,6 +105,7 @@ function renderCart() {
       <div class="cart-item-top">
         <div>
           <h4>${item.name}</h4>
+          ${variantText}
           <p>${formatRupiah(item.price)} / pcs</p>
         </div>
         <button class="remove-btn" onclick="removeItem(${index})">Hapus</button>
@@ -111,7 +151,12 @@ function checkoutWhatsApp() {
   cart.forEach(item => {
     const subtotal = item.price * item.qty;
     total += subtotal;
-    message += `- ${item.name} x${item.qty} = ${formatRupiah(subtotal)}%0A`;
+
+    const detail = item.color || item.size
+      ? ` ${item.color || ""}${item.color && item.size ? " " : ""}${item.size ? "Size " + item.size : ""}`
+      : "";
+
+    message += `- ${item.name}${detail} x${item.qty} = ${formatRupiah(subtotal)}%0A`;
   });
 
   message += `%0ATotal: ${formatRupiah(total)}%0A%0AMohon info ketersediaan size dan cara pembayarannya.`;
