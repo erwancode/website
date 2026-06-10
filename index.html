@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nalar Goods — Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="brand">
+      <div class="logo">N</div>
+      <div>
+        <h1>Nalar Goods</h1>
+        <p>Think. Feel. Create.</p>
+      </div>
+    </div>
+    <button class="cart-btn" onclick="openCart()">Keranjang <span id="cartCount">0</span></button>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Local clothing brand</p>
+      <h2>Kaos clean, meaningful, dan siap jadi identitas harianmu.</h2>
+      <p>Koleksi Nalar Goods dibuat dengan konsep Cipta, Rasa, dan Karsa. Pilih produk, masuk keranjang, lalu checkout langsung via WhatsApp.</p>
+      <a href="#products" class="primary-btn">Belanja Sekarang</a>
+    </div>
+    <div class="hero-card">
+      <span>NEW DROP</span>
+      <h3>Nalar Series 01</h3>
+      <p>CIPTA / RASA / KARSA</p>
+    </div>
+  </section>
+
+  <section class="section-head" id="products">
+    <p>Katalog Produk</p>
+    <h2>Pilih koleksi Nalar Goods</h2>
+  </section>
+
+  <main class="products" id="productList"></main>
+
+  <section class="info-grid">
+    <div>
+      <h3>Material</h3>
+      <p>100% Cotton Combed, nyaman untuk aktivitas harian.</p>
+    </div>
+    <div>
+      <h3>Fit</h3>
+      <p>Regular fit, tidak terlalu ketat dan tetap rapi dipakai.</p>
+    </div>
+    <div>
+      <h3>Checkout</h3>
+      <p>Pesanan langsung masuk ke WhatsApp admin Nalar Goods.</p>
+    </div>
+  </section>
+
+  <footer>
+    <h2>Nalar Goods</h2>
+    <p>Instagram: @nalargoods.id</p>
+    <p>© 2026 Nalar Goods. All rights reserved.</p>
+  </footer>
+
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-panel">
+      <div class="cart-header">
+        <h2>Keranjang</h2>
+        <button onclick="closeCart()">×</button>
+      </div>
+      <div id="cartItems"></div>
+      <div class="cart-total">
+        <p>Total</p>
+        <h3 id="cartTotal">Rp0</h3>
+      </div>
+      <div class="buyer-form">
+        <input id="buyerName" type="text" placeholder="Nama kamu" />
+        <textarea id="buyerAddress" placeholder="Alamat lengkap"></textarea>
+      </div>
+      <button class="checkout-btn" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
