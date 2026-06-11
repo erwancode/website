@@ -31,7 +31,7 @@ function selectCiptaColor(color) {
 function selectCiptaSize(size) {
   selectedCiptaSize = size;
 
-  document.querySelectorAll(".size-btn").forEach(button => {
+  document.querySelectorAll(".featured-product .size-btn").forEach(button => {
     button.classList.toggle("active", button.textContent.trim() === size);
   });
 }
@@ -44,7 +44,7 @@ function addCiptaToCart() {
 function selectRasaSize(size) {
   selectedRasaSize = size;
 
-  document.querySelectorAll(".rasa-size-btn").forEach(button => {
+  document.querySelectorAll(".rasa-card .size-btn").forEach(button => {
     button.classList.toggle("active", button.textContent.trim() === size);
   });
 }
@@ -180,3 +180,13 @@ function checkoutWhatsApp() {
 }
 
 renderCart();
+
+
+// Fallback klik RASA size
+document.addEventListener("click", function(e) {
+  const btn = e.target.closest(".rasa-card .size-btn");
+  if (!btn) return;
+  e.preventDefault();
+  e.stopPropagation();
+  selectRasaSize(btn.textContent.trim());
+}, true);
