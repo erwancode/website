@@ -530,3 +530,17 @@ footer {
   background: #181818 !important;
   color: #fff !important;
 }
+
+
+/* Final fix gambar KARSA */
+.karsa-card .product-image-wrap {
+  background: #e7dccb;
+  overflow: hidden;
+}
+
+.karsa-card .product-image-wrap img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
