@@ -426,3 +426,23 @@ footer {
   background: #111;
   color: #fff;
 }
+
+
+/* Fix klik pilihan size */
+.product-sizes,
+.size-option {
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.size-option {
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.size-option.active {
+  border-color: #111;
+  background: #111;
+  color: #fff;
+}
