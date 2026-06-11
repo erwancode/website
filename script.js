@@ -162,13 +162,16 @@ function renderCart() {
 }
 
 function openCart() {
-  document.getElementById("cart-panel").classList.add("active");
-  document.getElementById("overlay").classList.add("active");
+  forceOpenCartPanel();
 }
 
 function toggleCart() {
-  document.getElementById("cart-panel").classList.toggle("active");
-  document.getElementById("overlay").classList.toggle("active");
+  const panel = document.getElementById("cart-panel");
+  if (panel && (panel.classList.contains("active") || panel.classList.contains("open"))) {
+    closeCart();
+  } else {
+    forceOpenCartPanel();
+  }
 }
 
 function checkoutWhatsApp() {
@@ -177,7 +180,7 @@ function checkoutWhatsApp() {
     return;
   }
 
-  const phoneNumber = "6281234567890"; // Ganti dengan nomor WhatsApp kamu
+  const phoneNumber = "6285722379403"; // Ganti dengan nomor WhatsApp kamu
 
   let message = "Halo Nalar Goods, saya mau pesan:%0A%0A";
   let total = 0;
@@ -224,3 +227,35 @@ document.addEventListener("click", function(event) {
 
   selectKarsaSize(btn.dataset.size || btn.textContent.trim());
 }, true);
+
+
+// FIX: Sinkronisasi class cart agar mobile tidak hanya gelap
+function closeCart() {
+  const panel = document.getElementById("cart-panel");
+  const overlay = document.getElementById("overlay");
+
+  if (panel) {
+    panel.classList.remove("active");
+    panel.classList.remove("open");
+  }
+
+  if (overlay) {
+    overlay.classList.remove("active");
+    overlay.classList.remove("show");
+  }
+}
+
+function forceOpenCartPanel() {
+  const panel = document.getElementById("cart-panel");
+  const overlay = document.getElementById("overlay");
+
+  if (panel) {
+    panel.classList.add("active");
+    panel.classList.add("open");
+  }
+
+  if (overlay) {
+    overlay.classList.add("active");
+    overlay.classList.add("show");
+  }
+}
