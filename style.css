@@ -544,3 +544,41 @@ footer {
   height: 100% !important;
   object-fit: contain !important;
 }
+
+
+/* Konsistensi ukuran mockup produk */
+.product-image-wrap{
+  height:320px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+}
+
+.product-image-wrap img{
+  height:85% !important;
+  width:85% !important;
+  object-fit:contain !important;
+}
+
+.featured-product img{
+  width:88% !important;
+}
+
+.rasa-card img{
+  width:82% !important;
+}
+
+.karsa-card img{
+  width:78% !important;
+}
+
+/* Tinggi kartu produk seragam */
+.product-card{
+  display:flex !important;
+  flex-direction:column !important;
+}
+
+.product-card button:last-child{
+  margin-top:auto !important;
+}
