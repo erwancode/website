@@ -165,3 +165,13 @@ function checkoutWhatsApp() {
 }
 
 renderCart();
+
+
+// Size selector
+document.addEventListener('click', function (event) {
+  if (!event.target.classList.contains('size-option')) return;
+  const group = event.target.closest('.product-sizes');
+  if (!group) return;
+  group.querySelectorAll('.size-option').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+});

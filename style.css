@@ -389,3 +389,40 @@ footer {
     height: 260px;
   }
 }
+
+
+/* Pilihan size produk */
+.product-sizes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 12px 0 16px;
+}
+
+.size-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+  margin-right: 4px;
+}
+
+.size-option {
+  min-width: 42px;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid #b9b2a7;
+  border-radius: 8px;
+  background: #fffaf2;
+  color: #111;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.size-option:hover,
+.size-option.active {
+  border-color: #111;
+  background: #111;
+  color: #fff;
+}
