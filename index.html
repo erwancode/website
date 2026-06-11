@@ -65,21 +65,30 @@
         <button onclick="addCiptaToCart()">Tambah ke Keranjang</button>
       </article>
 
-      <article class="product-card">
-        <div class="product-image-wrap"><img src="assets/rasa-final.png" alt="Kaos RASA"></div>
-        <h3>RASA</h3>
-        <p>Kaos cream off-white dengan desain RASA: feel, understand, connect. Dibuat untuk mewakili kepekaan, makna, dan koneksi dalam diri.
+      <article class="product-card rasa-card">
+        <div class="product-image-wrap">
+          <img src="assets/rasa-final.png" alt="Kaos RASA cream off-white">
+        </div>
 
-<div class="product-sizes" data-product="RASA" aria-label="Pilihan size RASA">
-  <span class="size-label">Size:</span>
-  <button type="button" class="size-option active" data-size="S">S</button>
-  <button type="button" class="size-option" data-size="M">M</button>
-  <button type="button" class="size-option" data-size="L">L</button>
-  <button type="button" class="size-option" data-size="XL">XL</button>
-  <button type="button" class="size-option" data-size="XXL">XXL</button>
-</div></p>
+        <h3>RASA</h3>
+        <p>
+          Kaos cream off-white dengan desain RASA: feel, understand, connect.
+          Dibuat untuk mewakili kepekaan, makna, dan koneksi dalam diri.
+        </p>
         <strong>Rp149.000</strong>
-        <button onclick="addToCart('RASA', 149000)">Tambah ke Keranjang</button>
+
+        <div class="product-options">
+          <p>Pilih Size</p>
+          <div class="option-row">
+            <button type="button" class="rasa-size-btn active" onclick="selectRasaSize('S')">S</button>
+            <button type="button" class="rasa-size-btn" onclick="selectRasaSize('M')">M</button>
+            <button type="button" class="rasa-size-btn" onclick="selectRasaSize('L')">L</button>
+            <button type="button" class="rasa-size-btn" onclick="selectRasaSize('XL')">XL</button>
+            <button type="button" class="rasa-size-btn" onclick="selectRasaSize('XXL')">XXL</button>
+          </div>
+        </div>
+
+        <button type="button" onclick="addRasaToCart()">Tambah ke Keranjang</button>
       </article>
 
       <article class="product-card">

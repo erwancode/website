@@ -467,3 +467,21 @@ footer {
   color: #fff;
   border-color: #111;
 }
+
+
+/* RASA size buttons */
+.rasa-size-btn {
+  padding: 10px 16px;
+  border: 1px solid #111;
+  background: transparent;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #111;
+}
+
+.rasa-size-btn.active,
+.rasa-size-btn:hover {
+  background: #111;
+  color: #fff;
+}

@@ -1,6 +1,7 @@
 let cart = [];
 let selectedCiptaColor = "Hitam";
 let selectedCiptaSize = "M";
+let selectedRasaSize = "S";
 
 const ciptaImages = {
   "Hitam": "assets/cipta-hitam.png",
@@ -38,6 +39,20 @@ function selectCiptaSize(size) {
 function addCiptaToCart() {
   addToCart("CIPTA", 149000, selectedCiptaColor, selectedCiptaSize);
 }
+
+
+function selectRasaSize(size) {
+  selectedRasaSize = size;
+
+  document.querySelectorAll(".rasa-size-btn").forEach(button => {
+    button.classList.toggle("active", button.textContent.trim() === size);
+  });
+}
+
+function addRasaToCart() {
+  addToCart("RASA", 149000, "Cream Off-White", selectedRasaSize);
+}
+
 
 function addToCart(name, price, color = "", size = "") {
   const existingItem = cart.find(item =>
@@ -165,54 +180,3 @@ function checkoutWhatsApp() {
 }
 
 renderCart();
-
-
-
-
-
-window.selectedRasaSize = "S";
-
-function getRasaSelectedSizeFinal() {
-  const active = document.querySelector(".rasa-size-btn.active");
-  return active ? (active.dataset.size || active.textContent.trim()) : (window.selectedRasaSize || "S");
-}
-
-document.addEventListener("click", function (event) {
-  const button = event.target.closest(".rasa-size-btn");
-  if (!button) return;
-
-  event.preventDefault();
-  event.stopPropagation();
-  event.stopImmediatePropagation();
-
-  const picker = button.closest(".rasa-size-picker");
-  if (!picker) return;
-
-  picker.querySelectorAll(".rasa-size-btn").forEach(function (btn) {
-    btn.classList.remove("active");
-  });
-
-  button.classList.add("active");
-  window.selectedRasaSize = button.dataset.size || button.textContent.trim();
-  picker.dataset.selectedSize = window.selectedRasaSize;
-}, true);
-
-
-// Size selector final: hanya memakai pilihan size bawaan website
-document.addEventListener("click", function (event) {
-  const btn = event.target.closest(".size-option");
-  if (!btn) return;
-
-  event.preventDefault();
-  event.stopPropagation();
-
-  const group = btn.closest(".product-sizes");
-  if (!group) return;
-
-  group.querySelectorAll(".size-option").forEach(function (item) {
-    item.classList.remove("active");
-  });
-
-  btn.classList.add("active");
-  group.dataset.selectedSize = btn.dataset.size || btn.textContent.trim();
-}, true);
