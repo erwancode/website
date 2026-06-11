@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nalar Goods</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="brand">NALAR GOODS</div>
+    <nav>
+      <a href="#produk">Produk</a>
+      <a href="#tentang">Tentang</a>
+      <button class="cart-btn" onclick="toggleCart()">Keranjang <span id="cart-count">0</span></button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Cipta. Rasa. Karsa.</p>
+      <h1>Wear Your Thoughts.</h1>
+      <p class="hero-text">
+        Koleksi kaos Nalar Goods dibuat untuk kamu yang percaya bahwa pikiran,
+        rasa, dan kehendak bisa menjadi bagian dari identitas.
+      </p>
+      <a href="#produk" class="primary-btn">Lihat Koleksi</a>
+    </div>
+  </section>
+
+  <section id="produk" class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Koleksi</p>
+      <h2>Produk Nalar</h2>
+    </div>
+
+    <div class="product-grid">
+      <article class="product-card featured-product">
+        <div class="product-image-wrap">
+          <img id="cipta-image" src="assets/cipta-hitam.png" alt="Kaos CIPTA warna hitam" />
+        </div>
+
+        <h3>CIPTA</h3>
+        <p>Kaos dengan filosofi keberanian untuk memulai. Tersedia warna Hitam dan Off-White.</p>
+        <strong>Rp149.000</strong>
+
+        <div class="product-options">
+          <p>Pilih Warna</p>
+          <div class="option-row">
+            <button class="variant-btn active" data-color="Hitam" onclick="selectCiptaColor('Hitam')">Hitam</button>
+            <button class="variant-btn" data-color="Off-White" onclick="selectCiptaColor('Off-White')">Off-White</button>
+          </div>
+        </div>
+
+        <div class="product-options">
+          <p>Pilih Size</p>
+          <div class="option-row">
+            <button class="size-btn" onclick="selectCiptaSize('S')">S</button>
+            <button class="size-btn active" onclick="selectCiptaSize('M')">M</button>
+            <button class="size-btn" onclick="selectCiptaSize('L')">L</button>
+            <button class="size-btn" onclick="selectCiptaSize('XL')">XL</button>
+          </div>
+        </div>
+
+        <button onclick="addCiptaToCart()">Tambah ke Keranjang</button>
+      </article>
+
+      <article class="product-card">
+        <div class="product-image-wrap"><img src="assets/rasa-final.png" alt="Kaos RASA"></div>
+        <h3>RASA</h3>
+        <p>Kaos cream yang mewakili intuisi dan makna dalam diri.</p>
+        <strong>Rp149.000</strong>
+        <button onclick="addToCart('RASA', 149000)">Tambah ke Keranjang</button>
+      </article>
+
+      <article class="product-card">
+        <div class="mockup offwhite-shirt">KARSA</div>
+        <h3>KARSA</h3>
+        <p>Kaos off-white tentang kehendak untuk mewujudkan gagasan.</p>
+        <strong>Rp149.000</strong>
+        <button onclick="addToCart('KARSA', 149000)">Tambah ke Keranjang</button>
+      </article>
+    </div>
+  </section>
+
+  <section id="tentang" class="section about">
+    <p class="eyebrow">Tentang Nalar</p>
+    <h2>Cipta, Rasa, dan Karsa</h2>
+    <p>
+      Nalar lahir dari tiga unsur utama manusia: Cipta sebagai pikiran,
+      Rasa sebagai hati, dan Karsa sebagai kehendak. Ketiganya menjadi dasar
+      setiap karya yang kami buat.
+    </p>
+  </section>
+
+  <section class="section proof">
+    <div>✓ Local Brand Indonesia</div>
+    <div>✓ 100% Cotton Combed</div>
+    <div>✓ UV DTF Premium Print</div>
+    <div>✓ Pengiriman Seluruh Indonesia</div>
+  </section>
+
+  <aside id="cart-panel" class="cart-panel">
+    <div class="cart-header">
+      <h2>Keranjang</h2>
+      <button onclick="toggleCart()">×</button>
+    </div>
+
+    <div id="cart-items" class="cart-items">
+      <p class="empty-cart">Keranjang masih kosong.</p>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cart-total">Rp0</strong>
+      </div>
+      <button class="checkout-btn" onclick="checkoutWhatsApp()">Checkout WhatsApp</button>
+    </div>
+  </aside>
+
+  <div id="overlay" class="overlay" onclick="toggleCart()"></div>
+
+  <footer>
+    <p>© 2026 Nalar Goods. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
