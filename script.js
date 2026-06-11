@@ -2,6 +2,7 @@ let cart = [];
 let selectedCiptaColor = "Hitam";
 let selectedCiptaSize = "M";
 let selectedRasaSize = "S";
+let selectedKarsaSize = "S";
 
 const ciptaImages = {
   "Hitam": "assets/cipta-hitam.png",
@@ -53,6 +54,24 @@ function addRasaToCart() {
   addToCart("RASA", 149000, "Cream Off-White", selectedRasaSize);
 }
 
+
+
+
+
+
+
+
+function selectKarsaSize(size) {
+  selectedKarsaSize = size;
+
+  document.querySelectorAll(".karsa-card .size-btn").forEach(function(button) {
+    button.classList.toggle("active", button.dataset.size === size);
+  });
+}
+
+function addKarsaToCart() {
+  addToCart("KARSA", 149000, "Off-White", selectedKarsaSize);
+}
 
 function addToCart(name, price, color = "", size = "") {
   const existingItem = cart.find(item =>
@@ -189,4 +208,19 @@ document.addEventListener("click", function(e) {
   e.preventDefault();
   e.stopPropagation();
   selectRasaSize(btn.textContent.trim());
+}, true);
+
+
+
+
+
+// Fallback klik KARSA size
+document.addEventListener("click", function(event) {
+  const btn = event.target.closest(".karsa-card .size-btn");
+  if (!btn) return;
+
+  event.preventDefault();
+  event.stopPropagation();
+
+  selectKarsaSize(btn.dataset.size || btn.textContent.trim());
 }, true);
