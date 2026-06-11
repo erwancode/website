@@ -169,7 +169,7 @@ renderCart();
 
 
 
-// FIX FINAL SIZE RASA
+
 window.selectedRasaSize = "S";
 
 function getRasaSelectedSizeFinal() {
@@ -195,4 +195,24 @@ document.addEventListener("click", function (event) {
   button.classList.add("active");
   window.selectedRasaSize = button.dataset.size || button.textContent.trim();
   picker.dataset.selectedSize = window.selectedRasaSize;
+}, true);
+
+
+// Size selector final: hanya memakai pilihan size bawaan website
+document.addEventListener("click", function (event) {
+  const btn = event.target.closest(".size-option");
+  if (!btn) return;
+
+  event.preventDefault();
+  event.stopPropagation();
+
+  const group = btn.closest(".product-sizes");
+  if (!group) return;
+
+  group.querySelectorAll(".size-option").forEach(function (item) {
+    item.classList.remove("active");
+  });
+
+  btn.classList.add("active");
+  group.dataset.selectedSize = btn.dataset.size || btn.textContent.trim();
 }, true);
