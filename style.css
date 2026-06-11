@@ -781,3 +781,208 @@ footer {
     padding: 8px 11px !important;
   }
 }
+
+
+/* ==================================
+   MOBILE HOTFIX FINAL — NALAR GOODS
+   ================================== */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .navbar {
+    width: 100%;
+    padding: 14px 18px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  .brand {
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
+
+  .navbar nav,
+  nav {
+    display: flex !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+
+  nav a {
+    display: none !important;
+  }
+
+  .cart-btn {
+    padding: 8px 12px !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+
+  .hero {
+    padding: 54px 18px 42px !important;
+    min-height: auto !important;
+  }
+
+  .hero h1 {
+    font-size: 34px !important;
+    line-height: 1.05 !important;
+    margin: 10px 0 !important;
+  }
+
+  .hero-text {
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+    max-width: 100% !important;
+  }
+
+  .section {
+    width: 100% !important;
+    padding: 34px 16px !important;
+  }
+
+  .section-heading h2,
+  .about h2 {
+    font-size: 30px !important;
+    line-height: 1.12 !important;
+  }
+
+  .product-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    width: 100% !important;
+  }
+
+  .product-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 14px !important;
+    border-radius: 18px !important;
+  }
+
+  .product-image-wrap {
+    width: 100% !important;
+    height: 245px !important;
+    border-radius: 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
+
+  .product-image-wrap img {
+    display: block !important;
+    width: 82% !important;
+    height: 82% !important;
+    object-fit: contain !important;
+  }
+
+  .featured-product .product-image-wrap img {
+    width: 86% !important;
+  }
+
+  .rasa-card .product-image-wrap img {
+    width: 84% !important;
+  }
+
+  .karsa-card .product-image-wrap img {
+    width: 80% !important;
+  }
+
+  .product-card h3 {
+    font-size: 21px !important;
+    margin: 14px 0 8px !important;
+  }
+
+  .product-card p {
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+  }
+
+  .product-card strong {
+    font-size: 17px !important;
+  }
+
+  .product-options {
+    margin: 12px 0 !important;
+  }
+
+  .product-options p {
+    font-size: 13px !important;
+  }
+
+  .option-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 7px !important;
+  }
+
+  .variant-btn,
+  .size-btn,
+  .product-card button {
+    min-height: 36px !important;
+    font-size: 11px !important;
+  }
+
+  .size-btn,
+  .variant-btn {
+    min-width: 38px !important;
+    padding: 8px 11px !important;
+  }
+
+  .product-card > button:last-child {
+    width: 100% !important;
+    margin-top: 14px !important;
+    padding: 12px 14px !important;
+    font-size: 12px !important;
+  }
+
+  .cart-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+    right: -100% !important;
+    padding: 18px !important;
+  }
+
+  .cart-panel.open {
+    right: 0 !important;
+  }
+
+  .cart-footer {
+    left: 18px !important;
+    right: 18px !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .hero h1 {
+    font-size: 30px !important;
+  }
+
+  .section-heading h2,
+  .about h2 {
+    font-size: 27px !important;
+  }
+
+  .product-image-wrap {
+    height: 225px !important;
+  }
+
+  .product-card {
+    padding: 12px !important;
+  }
+}
