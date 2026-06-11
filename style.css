@@ -446,3 +446,50 @@ footer {
   background: #111;
   color: #fff;
 }
+
+
+/* FIX FINAL: tombol size RASA */
+.rasa-size-picker {
+  position: relative !important;
+  z-index: 9999 !important;
+  margin: 12px 0 16px !important;
+  pointer-events: auto !important;
+}
+
+.rasa-size-title {
+  margin: 0 0 8px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #1c1c1c !important;
+}
+
+.rasa-size-options {
+  display: flex !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+  position: relative !important;
+  z-index: 9999 !important;
+  pointer-events: auto !important;
+}
+
+.rasa-size-btn {
+  min-width: 44px !important;
+  height: 36px !important;
+  border: 1px solid #b8b0a4 !important;
+  border-radius: 8px !important;
+  background: #fffaf2 !important;
+  color: #111 !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  position: relative !important;
+  z-index: 10000 !important;
+}
+
+.rasa-size-btn.active,
+.rasa-size-btn:hover {
+  background: #111 !important;
+  color: #fff !important;
+  border-color: #111 !important;
+}

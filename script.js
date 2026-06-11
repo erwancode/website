@@ -167,55 +167,32 @@ function checkoutWhatsApp() {
 renderCart();
 
 
-// Size selector
-document.addEventListener('click', function (event) {
-  if (!event.target.classList.contains('size-option')) return;
-  const group = event.target.closest('.product-sizes');
-  if (!group) return;
-  group.querySelectorAll('.size-option').forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
-});
 
 
-// Fix pilihan size produk agar bisa diklik dan tersimpan
-document.addEventListener('click', function (event) {
-  const sizeButton = event.target.closest('.size-option');
-  if (!sizeButton) return;
+// FIX FINAL SIZE RASA
+window.selectedRasaSize = "S";
+
+function getRasaSelectedSizeFinal() {
+  const active = document.querySelector(".rasa-size-btn.active");
+  return active ? (active.dataset.size || active.textContent.trim()) : (window.selectedRasaSize || "S");
+}
+
+document.addEventListener("click", function (event) {
+  const button = event.target.closest(".rasa-size-btn");
+  if (!button) return;
 
   event.preventDefault();
   event.stopPropagation();
+  event.stopImmediatePropagation();
 
-  const sizeGroup = sizeButton.closest('.product-sizes');
-  if (!sizeGroup) return;
+  const picker = button.closest(".rasa-size-picker");
+  if (!picker) return;
 
-  sizeGroup.querySelectorAll('.size-option').forEach(function (button) {
-    button.classList.remove('active');
+  picker.querySelectorAll(".rasa-size-btn").forEach(function (btn) {
+    btn.classList.remove("active");
   });
 
-  sizeButton.classList.add('active');
-  sizeGroup.dataset.selectedSize = sizeButton.dataset.size || sizeButton.textContent.trim();
-}, true);
-
-// Helper untuk mengambil size terpilih pada card produk
-function getSelectedProductSize(productElement) {
-  const sizeGroup = productElement ? productElement.querySelector('.product-sizes') : null;
-  const activeSize = sizeGroup ? sizeGroup.querySelector('.size-option.active') : null;
-  return activeSize ? (activeSize.dataset.size || activeSize.textContent.trim()) : '';
-}
-
-
-// Simpan size terakhir saat tombol tambah/pesan ditekan
-document.addEventListener('click', function (event) {
-  const actionButton = event.target.closest('button, a');
-  if (!actionButton) return;
-
-  const productElement = actionButton.closest('.product-card, .card, .product, article, .produk, .item');
-  if (!productElement) return;
-
-  const productNameText = productElement.textContent || '';
-  if (!/RASA/i.test(productNameText)) return;
-
-  const selectedSize = getSelectedProductSize(productElement) || 'S';
-  actionButton.dataset.selectedSize = selectedSize;
-  productElement.dataset.selectedSize = selectedSize;
+  button.classList.add("active");
+  window.selectedRasaSize = button.dataset.size || button.textContent.trim();
+  picker.dataset.selectedSize = window.selectedRasaSize;
 }, true);
