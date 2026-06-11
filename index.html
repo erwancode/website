@@ -91,12 +91,30 @@
         <button type="button" onclick="addRasaToCart()">Tambah ke Keranjang</button>
       </article>
 
-      <article class="product-card">
-        <div class="mockup offwhite-shirt">KARSA</div>
+      <article class="product-card karsa-card">
+        <div class="product-image-wrap">
+          <img src="assets/karsa-final.png" alt="Kaos KARSA off-white">
+        </div>
+
         <h3>KARSA</h3>
-        <p>Kaos off-white tentang kehendak untuk mewujudkan gagasan.</p>
+        <p>
+          Kaos off-white dengan desain KARSA: think, feel, act.
+          Dibuat untuk mewakili kehendak, keberanian, dan langkah untuk mewujudkan tujuan.
+        </p>
         <strong>Rp149.000</strong>
-        <button onclick="addToCart('KARSA', 149000)">Tambah ke Keranjang</button>
+
+        <div class="product-options">
+          <p>Pilih Size</p>
+          <div class="option-row">
+            <button type="button" class="size-btn karsa-size active" onclick="selectKarsaSize('S')">S</button>
+            <button type="button" class="size-btn karsa-size" onclick="selectKarsaSize('M')">M</button>
+            <button type="button" class="size-btn karsa-size" onclick="selectKarsaSize('L')">L</button>
+            <button type="button" class="size-btn karsa-size" onclick="selectKarsaSize('XL')">XL</button>
+            <button type="button" class="size-btn karsa-size" onclick="selectKarsaSize('XXL')">XXL</button>
+          </div>
+        </div>
+
+        <button type="button" onclick="addKarsaToCart()">Tambah ke Keranjang</button>
       </article>
     </div>
   </section>
