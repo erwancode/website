@@ -626,7 +626,8 @@ footer {
   .hero h1 {
     font-size: 40px !important;
     line-height: 1.05 !important;
-  }
+    letter-spacing: 1.8px !important;
+}
 
   .hero-text {
     font-size: 15px !important;
@@ -750,7 +751,8 @@ footer {
 
   .hero h1 {
     font-size: 34px !important;
-  }
+    letter-spacing: 1.2px !important;
+}
 
   .section-heading h2 {
     font-size: 32px !important;
@@ -841,7 +843,8 @@ img {
     font-size: 34px !important;
     line-height: 1.05 !important;
     margin: 10px 0 !important;
-  }
+    letter-spacing: 1.2px !important;
+}
 
   .hero-text {
     font-size: 14px !important;
