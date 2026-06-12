@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /
 
+Sitemap: https://erwancode.github.io/website/sitemap.xml
