@@ -1014,3 +1014,30 @@ img {
     z-index: 9998 !important;
   }
 }
+.size-chart{
+    max-width:700px;
+    margin:60px auto;
+    padding:32px;
+    background:#f7f3ed;
+    border:1px solid #d7c9b8;
+    border-radius:16px;
+    text-align:center;
+}
+
+.size-chart h2{
+    margin-bottom:24px;
+}
+
+.size-table{
+    display:grid;
+    gap:12px;
+}
+
+.size-table div{
+    padding:12px;
+    border-bottom:1px solid #e5d8c8;
+}
+
+.size-table div:last-child{
+    border-bottom:none;
+}
