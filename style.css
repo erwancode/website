@@ -1041,3 +1041,54 @@ img {
 .size-table div:last-child{
     border-bottom:none;
 }
+/* =========================
+   PANDUAN PERAWATAN
+========================= */
+
+.care-section {
+  padding: 80px 20px;
+  background: #faf8f2;
+}
+
+.care-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.care-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 50px;
+}
+
+.care-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.care-item {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.care-item span {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.care-item h3 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.care-item p {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
