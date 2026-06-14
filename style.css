@@ -1162,3 +1162,118 @@ img {
   color: #333;
   line-height: 1.7;
 }
+
+
+/* =========================
+   FILOSOFI NALAR - FINAL
+========================= */
+
+.philosophy-section {
+  padding: 90px 20px;
+  background: #f7f1e8;
+}
+
+.philosophy-container {
+  width: min(1160px, 100%);
+  margin: 0 auto;
+}
+
+.philosophy-heading {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.philosophy-heading .eyebrow {
+  color: #8a6a42;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.philosophy-heading h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #111;
+  margin-bottom: 14px;
+}
+
+.philosophy-intro {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #5d5348;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.philosophy-card {
+  background: #fffaf2;
+  border: 1px solid #e3d5bf;
+  border-radius: 22px;
+  padding: 34px 28px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(33, 25, 15, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.philosophy-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 38px rgba(33, 25, 15, 0.10);
+}
+
+.philosophy-symbol {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  color: #111;
+  font-size: 1.55rem;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+}
+
+.philosophy-card h3 {
+  margin-bottom: 14px;
+  color: #111;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+}
+
+.philosophy-card p {
+  color: #5d5348;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.philosophy-closing {
+  max-width: 760px;
+  margin: 46px auto 0;
+  padding: 26px 28px;
+  background: #151515;
+  color: #fffaf2;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.philosophy-closing p:last-child {
+  color: #d8c9b2;
+  margin-top: 6px;
+}
+
+@media (max-width: 860px) {
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .philosophy-section {
+    padding: 70px 18px;
+  }
+}
