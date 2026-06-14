@@ -1092,3 +1092,73 @@ img {
   font-size: 0.9rem;
   line-height: 1.6;
 }
+/* =========================
+   FILOSOFI NALAR
+========================= */
+
+.philosophy-section {
+  padding: 80px 20px;
+  background: #f7f1e8;
+}
+
+.philosophy-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.philosophy-intro {
+  max-width: 720px;
+  margin: 0 auto 45px;
+  text-align: center;
+  color: #555;
+  line-height: 1.7;
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.philosophy-card {
+  background: #fffaf2;
+  border: 1px solid #e0d2bd;
+  border-radius: 18px;
+  padding: 28px 24px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.philosophy-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+}
+
+.symbol {
+  font-size: 1.4rem;
+  letter-spacing: 5px;
+  margin-bottom: 18px;
+  color: #111;
+}
+
+.philosophy-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+  color: #111;
+}
+
+.philosophy-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+.philosophy-closing {
+  max-width: 720px;
+  margin: 45px auto 0;
+  text-align: center;
+  color: #333;
+  line-height: 1.7;
+}
