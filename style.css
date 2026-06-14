@@ -1277,3 +1277,41 @@ img {
     padding: 70px 18px;
   }
 }
+
+/* =========================
+   PROOF BADGES - POSISI SETELAH PRODUK
+========================= */
+
+#produk.section {
+  padding-bottom: 36px;
+}
+
+.proof-section {
+  padding: 0 7% 72px;
+  background: #f6f1e8;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.proof-grid div {
+  padding: 18px;
+  border-radius: 18px;
+  background: #fffaf2;
+  border: 1px solid #ded4c4;
+  font-weight: 800;
+  color: #111;
+}
+
+@media (max-width: 850px) {
+  .proof-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-section {
+    padding-bottom: 56px;
+  }
+}
