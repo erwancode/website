@@ -38,7 +38,7 @@ function selectCiptaSize(size) {
 }
 
 function addCiptaToCart() {
-  addToCart("CIPTA", 149000, selectedCiptaColor, selectedCiptaSize);
+  addToCart("CIPTA", 159000, selectedCiptaColor, selectedCiptaSize);
 }
 
 
@@ -51,7 +51,7 @@ function selectRasaSize(size) {
 }
 
 function addRasaToCart() {
-  addToCart("RASA", 149000, "Cream Off-White", selectedRasaSize);
+  addToCart("RASA", 159000, "Cream Off-White", selectedRasaSize);
 }
 
 
@@ -70,7 +70,7 @@ function selectKarsaSize(size) {
 }
 
 function addKarsaToCart() {
-  addToCart("KARSA", 149000, "Off-White", selectedKarsaSize);
+  addToCart("KARSA", 159000, "Off-White", selectedKarsaSize);
 }
 
 function addToCart(name, price, color = "", size = "") {
