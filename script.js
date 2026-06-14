@@ -180,9 +180,23 @@ function checkoutWhatsApp() {
     return;
   }
 
-  const phoneNumber = "6285722379403"; // Ganti dengan nomor WhatsApp kamu
+  const buyerName = document.getElementById("buyer-name")?.value.trim();
+  const buyerPhone = document.getElementById("buyer-phone")?.value.trim();
+  const buyerAddress = document.getElementById("buyer-address")?.value.trim();
 
-  let message = "Halo Nalar Goods, saya mau pesan:%0A%0A";
+  if (!buyerName || !buyerPhone || !buyerAddress) {
+    alert("Mohon lengkapi Nama Lengkap, Nomor WhatsApp, dan Alamat Lengkap terlebih dahulu.");
+    return;
+  }
+
+  const phoneNumber = "6285722379403";
+
+  let message = `Halo Nalar Goods,%0A%0ASaya ingin melakukan pemesanan.%0A%0A`;
+  message += `Nama: ${encodeURIComponent(buyerName)}%0A`;
+  message += `No. WhatsApp: ${encodeURIComponent(buyerPhone)}%0A`;
+  message += `Alamat: ${encodeURIComponent(buyerAddress)}%0A%0A`;
+  message += `Pesanan:%0A`;
+
   let total = 0;
 
   cart.forEach(item => {
@@ -193,10 +207,10 @@ function checkoutWhatsApp() {
       ? ` ${item.color || ""}${item.color && item.size ? " " : ""}${item.size ? "Size " + item.size : ""}`
       : "";
 
-    message += `- ${item.name}${detail} x${item.qty} = ${formatRupiah(subtotal)}%0A`;
+    message += `- ${encodeURIComponent(item.name + detail)} x${item.qty} = ${encodeURIComponent(formatRupiah(subtotal))}%0A`;
   });
 
-  message += `%0ATotal: ${formatRupiah(total)}%0A%0AMohon info ketersediaan size dan cara pembayarannya.`;
+  message += `%0ATotal: ${encodeURIComponent(formatRupiah(total))}%0A%0AMohon informasi pembayaran.%0ATerima kasih.`;
 
   window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
 }
