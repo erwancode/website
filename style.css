@@ -374,6 +374,22 @@ footer {
   color: #6b6259;
 }
 
+.footer-instagram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  color: #2f2a24;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(47, 42, 36, 0.35);
+}
+
+.footer-instagram:hover {
+  color: #111111;
+  border-bottom-color: #111111;
+}
+
 @media (max-width: 850px) {
   .product-grid,
   .proof {
