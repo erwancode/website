@@ -37,7 +37,8 @@
       "url": "https://erwancode.github.io/website/",
       "logo": "https://erwancode.github.io/website/assets/og-cover-v2.png",
       "sameAs": [
-        "https://www.instagram.com/nalar.goods/"
+        "https://www.instagram.com/nalar.goods/",
+        "https://s.shopee.co.id/110faOhgEH"
       ],
       "description": "Brand kaos minimalis filosofis Indonesia dengan koleksi Cipta, Rasa, dan Karsa."
     },
@@ -66,7 +67,7 @@
             "price": "159000",
             "priceCurrency": "IDR",
             "availability": "https://schema.org/InStock",
-            "url": "https://erwancode.github.io/website/#produk"
+            "url": "https://s.shopee.co.id/110faOhgEH"
           }
         },
         {
@@ -84,7 +85,7 @@
             "price": "159000",
             "priceCurrency": "IDR",
             "availability": "https://schema.org/InStock",
-            "url": "https://erwancode.github.io/website/#produk"
+            "url": "https://s.shopee.co.id/110faOhgEH"
           }
         },
         {
@@ -102,7 +103,7 @@
             "price": "159000",
             "priceCurrency": "IDR",
             "availability": "https://schema.org/InStock",
-            "url": "https://erwancode.github.io/website/#produk"
+            "url": "https://s.shopee.co.id/110faOhgEH"
           }
         }
       ]
@@ -131,7 +132,7 @@
           "name": "Bagaimana cara memesan kaos Nalar Goods?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Pilih produk, warna, dan ukuran, lalu tambahkan ke keranjang dan checkout melalui WhatsApp."
+            "text": "Pilih produk, warna, dan ukuran, lalu checkout melalui Shopee atau pesan langsung melalui WhatsApp."
           }
         }
       ]
@@ -139,7 +140,7 @@
   ]
 }
     </script>
-    <link rel="stylesheet" href="style.css?v=8" />
+    <link rel="stylesheet" href="style.css?v=9" />
 </head>
 <body>
   <header class="navbar">
@@ -150,6 +151,7 @@
       <a href="#filosofi">Filosofi</a>
       <a href="#size-chart">Size Chart</a>
       <a href="#artikel">Artikel</a>
+      <a class="nav-shopee" href="https://s.shopee.co.id/110faOhgEH" target="_blank" rel="noopener noreferrer">Shopee</a>
       <button class="cart-btn" onclick="toggleCart()">Keranjang <span id="cart-count">0</span></button>
     </nav>
   </header>
@@ -162,7 +164,11 @@
         Koleksi kaos Nalar Goods dibuat untuk kamu yang percaya bahwa pikiran,
         rasa, dan kehendak bisa menjadi bagian dari identitas.
       </p>
-      <a href="#produk" class="primary-btn">Lihat Koleksi</a>
+      <div class="hero-actions">
+        <a href="#produk" class="primary-btn">Lihat Koleksi</a>
+        <a href="https://s.shopee.co.id/110faOhgEH" class="shopee-btn" target="_blank" rel="noopener noreferrer">🛒 Beli di Shopee</a>
+        <a href="https://wa.me/6285722379403" class="wa-btn" target="_blank" rel="noopener noreferrer">💬 Pesan via WhatsApp</a>
+      </div>
     </div>
   </section>
 
@@ -178,6 +184,7 @@
           <img id="cipta-image" src="assets/cipta-hitam.png" alt="Kaos Nalar Goods CIPTA warna hitam dengan desain minimalis filosofis" />
         </div>
 
+        <span class="marketplace-badge">Tersedia di Shopee</span>
         <h3>CIPTA</h3>
         <p>Awal dari setiap ide. Simbol proses berpikir yang melahirkan karya.</p>
         <strong>Rp159.000</strong>
@@ -201,7 +208,10 @@
           </div>
         </div>
 
-        <button onclick="addCiptaToCart()">Tambah ke Keranjang</button>
+        <div class="product-actions">
+          <a class="buy-shopee-btn" href="https://s.shopee.co.id/110faOhgEH" target="_blank" rel="noopener noreferrer">🛒 Beli di Shopee</a>
+          <button onclick="addCiptaToCart()">Tambah ke Keranjang</button>
+        </div>
       </article>
 
       <article class="product-card rasa-card">
@@ -209,6 +219,7 @@
           <img src="assets/rasa-final.png" alt="Kaos Nalar Goods RASA warna off-white dengan simbol gelombang minimalis">
         </div>
 
+        <span class="marketplace-badge">Tersedia di Shopee</span>
         <h3>RASA</h3>
         <p>
           Kepekaan yang memberi makna. Simbol empati, pemahaman, dan koneksi.
@@ -226,7 +237,10 @@
           </div>
         </div>
 
-        <button type="button" onclick="addRasaToCart()">Tambah ke Keranjang</button>
+        <div class="product-actions">
+          <a class="buy-shopee-btn" href="https://s.shopee.co.id/110faOhgEH" target="_blank" rel="noopener noreferrer">🛒 Beli di Shopee</a>
+          <button type="button" onclick="addRasaToCart()">Tambah ke Keranjang</button>
+        </div>
       </article>
 
       <article class="product-card karsa-card">
@@ -234,6 +248,7 @@
           <img src="assets/karsa.png" alt="Kaos Nalar Goods KARSA warna off-white dengan simbol gunung minimalis">
         </div>
 
+        <span class="marketplace-badge">Tersedia di Shopee</span>
         <h3>KARSA</h3>
         <p>
           Keberanian untuk bertindak. Simbol langkah nyata menuju tujuan.
@@ -251,7 +266,10 @@
           </div>
         </div>
 
-        <button type="button" onclick="addKarsaToCart()">Tambah ke Keranjang</button>
+        <div class="product-actions">
+          <a class="buy-shopee-btn" href="https://s.shopee.co.id/110faOhgEH" target="_blank" rel="noopener noreferrer">🛒 Beli di Shopee</a>
+          <button type="button" onclick="addKarsaToCart()">Tambah ke Keranjang</button>
+        </div>
       </article>
     </div>
   </section>
@@ -290,7 +308,8 @@
       <div class="philosophy-grid">
         <article class="philosophy-card">
           <div class="philosophy-symbol">•────□</div>
-          <h3>CIPTA</h3>
+          <span class="marketplace-badge">Tersedia di Shopee</span>
+        <h3>CIPTA</h3>
           <p>
             Cipta adalah awal dari setiap ide. Ia mewakili kemampuan manusia untuk
             berpikir, membayangkan, dan melahirkan karya.
@@ -299,7 +318,8 @@
 
         <article class="philosophy-card">
           <div class="philosophy-symbol">≈≈≈≈≈≈≈</div>
-          <h3>RASA</h3>
+          <span class="marketplace-badge">Tersedia di Shopee</span>
+        <h3>RASA</h3>
           <p>
             Rasa adalah kepekaan yang memberi makna. Ia mewakili empati,
             pemahaman, dan hubungan manusia dengan sekitarnya.
@@ -308,7 +328,8 @@
 
         <article class="philosophy-card">
           <div class="philosophy-symbol">△</div>
-          <h3>KARSA</h3>
+          <span class="marketplace-badge">Tersedia di Shopee</span>
+        <h3>KARSA</h3>
           <p>
             Karsa adalah keberanian untuk bertindak. Ia mewakili kehendak,
             langkah nyata, dan usaha untuk mewujudkan tujuan.
@@ -485,16 +506,18 @@
 
       <article class="faq-item">
         <h3>Bagaimana cara memesan?</h3>
-        <p>Pilih produk, warna, dan ukuran, lalu tambahkan ke keranjang. Setelah itu checkout melalui WhatsApp untuk konfirmasi stok dan pembayaran.</p>
+        <p>Pilih produk, warna, dan ukuran, lalu checkout melalui Shopee. Kamu juga bisa pesan via WhatsApp untuk konfirmasi stok, ukuran, dan pembayaran langsung.</p>
       </article>
     </div>
   </div>
 </section>
 <footer>
     <p>© 2026 Nalar Goods. All rights reserved.</p>
-    <a class="footer-instagram" href="https://www.instagram.com/nalar.goods/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Nalar Goods">Instagram @nalar.goods</a>
+    <a class="footer-instagram" href="https://www.instagram.com/nalar.goods/",
+        "https://s.shopee.co.id/110faOhgEH" target="_blank" rel="noopener noreferrer" aria-label="Instagram Nalar Goods">Instagram @nalar.goods</a>
 </footer>
 
-  <script src="script.js?v=8"></script>
+  <a class="floating-shopee" href="https://s.shopee.co.id/110faOhgEH" target="_blank" rel="noopener noreferrer" aria-label="Beli Nalar Goods di Shopee">🛒 Shopee</a>
+  <script src="script.js?v=9"></script>
 </body>
 </html>
