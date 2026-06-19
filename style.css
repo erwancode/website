@@ -1671,3 +1671,39 @@ img {
     padding: 7px 11px;
   }
 }
+
+/* Revisi tombol marketplace mobile - 19 Juni 2026 */
+@media (max-width: 720px) {
+  .hero-actions {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-actions .shopee-btn,
+  .hero-actions .wa-btn {
+    width: auto;
+    flex: 0 0 auto;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .floating-shopee {
+    right: 14px;
+    bottom: 16px;
+    padding: 9px 13px;
+    font-size: 13px;
+    font-weight: 800;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-actions .shopee-btn,
+  .hero-actions .wa-btn {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+}
