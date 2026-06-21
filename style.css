@@ -1707,3 +1707,32 @@ img {
     font-size: 12px;
   }
 }
+
+
+/* Fix ukuran tombol produk di mobile */
+@media (max-width: 720px) {
+  .product-actions{
+    flex-direction: column;
+    align-items:center;
+  }
+
+  .product-actions a,
+  .product-actions button,
+  .buy-shopee-btn{
+    width:100% !important;
+    max-width:320px !important;
+    height:48px !important;
+    min-height:48px !important;
+    padding:0 18px !important;
+    font-size:14px !important;
+    line-height:48px !important;
+    flex:none !important;
+  }
+
+  .floating-shopee{
+    width:auto !important;
+    height:44px !important;
+    line-height:44px !important;
+    padding:0 16px !important;
+  }
+}
