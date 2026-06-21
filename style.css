@@ -1708,31 +1708,54 @@ img {
   }
 }
 
-
-/* Fix ukuran tombol produk di mobile */
-@media (max-width: 720px) {
-  .product-actions{
-    flex-direction: column;
-    align-items:center;
+/* =====================================================
+   FINAL FIX MOBILE BUTTON PRODUK — 21 Juni 2026
+   Penyebab tombol membesar: flex: 1 1 165px pada mobile
+   membuat tinggi tombol ikut menjadi ±165px saat column.
+===================================================== */
+@media screen and (max-width: 768px) {
+  .product-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    margin-top: 14px !important;
   }
 
   .product-actions a,
   .product-actions button,
-  .buy-shopee-btn{
-    width:100% !important;
-    max-width:320px !important;
-    height:48px !important;
-    min-height:48px !important;
-    padding:0 18px !important;
-    font-size:14px !important;
-    line-height:48px !important;
-    flex:none !important;
+  .product-actions .buy-shopee-btn,
+  .product-actions button:last-child,
+  .product-card .product-actions a,
+  .product-card .product-actions button {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+    padding: 0 16px !important;
+    margin: 0 !important;
+    border-radius: 999px !important;
+    font-size: 13px !important;
+    line-height: 46px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
   }
 
-  .floating-shopee{
-    width:auto !important;
-    height:44px !important;
-    line-height:44px !important;
-    padding:0 16px !important;
+  .floating-shopee {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    padding: 0 15px !important;
+    font-size: 13px !important;
+    line-height: 42px !important;
+    right: 14px !important;
+    bottom: 14px !important;
   }
 }
