@@ -5,8 +5,8 @@ let selectedRasaSize = "S";
 let selectedKarsaSize = "S";
 
 const ciptaImages = {
-  "Hitam": "assets/cipta-hitam.png",
-  "Off-White": "assets/cipta-offwhite.png"
+  "Hitam": "assets/cipta-hitam.webp",
+  "Off-White": "assets/cipta-offwhite.webp"
 };
 
 function formatRupiah(number) {
